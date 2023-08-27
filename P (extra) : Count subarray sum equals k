@@ -1,0 +1,16 @@
+METHOD 3: OPTIMAL
+int findAllSubarraysWithGivenSum(vector < int > & arr, int k) {
+    // Write Your Code Here
+    unordered_map<int,int> m;
+    m[0]=1;
+    int presum=0;
+    int cnt=0;
+    for(int i=0;i<arr.size();i++)
+    {
+        presum+=arr[i];
+        int remove=presum-k;
+        cnt+=m[remove];
+        m[presum]+=1;
+    }
+    return cnt;
+}
